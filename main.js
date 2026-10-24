@@ -50,7 +50,7 @@ ipcMain.handle('check-for-updates', async () => {
     return { status: 'error', message: error?.message || 'Update check failed.' };
   }
 });
-ipcMain.handle('download-update', async () => { await autoUpdater.downloadUpdate(); return { status: 'downloading' }; });
+ipcMain.handle('download-update', async () => { await autoUpdater.downloadUpdate(); return { status: 'downloaded' }; });
 ipcMain.handle('install-update', () => { autoUpdater.quitAndInstall(); });
 ipcMain.handle('open-update-page', () => shell.openExternal('https://github.com/karthiksivt/DayboardTodo/releases/latest'));
 
