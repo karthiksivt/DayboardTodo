@@ -29,7 +29,7 @@ The generated `.dmg` will be in `dist/`.
 
 ## Releasing updates
 
-Increase the version in `package.json`, run `npm run dist`, and publish the resulting DMG as a GitHub Release. Automatic in-app updates are not enabled yet; adding `electron-updater` with signed GitHub Releases is the next step for a Check for Updates button.
+Increase the version in `package.json`, run `npm run dist`, and publish the resulting DMG together with `dist/latest-mac.yml` as a GitHub Release. Installed apps can then use the **↻ UPDATE** button to check, download, and install the new release. Signed and notarized builds are recommended for production distribution.
 
 ## Included in this first build
 
