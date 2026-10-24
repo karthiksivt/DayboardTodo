@@ -1,0 +1,37 @@
+/* Keep the home-page note compact when several media files are attached. */
+body:not(.notes-focus) #notesPanel .attachment-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+body:not(.notes-focus) #notesPanel .attachment-card {
+  padding: 4px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+body:not(.notes-focus) #notesPanel .attachment-card img,
+body:not(.notes-focus) #notesPanel .attachment-card video,
+body:not(.notes-focus) #notesPanel .file-glyph {
+  height: 54px;
+}
+
+body:not(.notes-focus) #notesPanel .file-glyph { font-size: 22px; }
+body:not(.notes-focus) #notesPanel .attachment-meta { margin-top: 3px; gap: 0; }
+body:not(.notes-focus) #notesPanel .attachment-meta strong { font-size: 8px; }
+body:not(.notes-focus) #notesPanel .attachment-meta span { font-size: 7px; }
+body:not(.notes-focus) #notesPanel .attachment-card audio { height: 22px; }
+
+body:not(.notes-focus) #notesPanel .attachment-card .delete-item {
+  width: 16px;
+  height: 16px;
+  line-height: 14px;
+  font-size: 14px;
+  right: 1px;
+  top: 1px;
+}
+
+@media (max-width: 520px) {
+  body:not(.notes-focus) #notesPanel .attachment-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

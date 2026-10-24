@@ -1,0 +1,3 @@
+.field-error{display:none;background:var(--pink);border:var(--thin);box-shadow:2px 2px 0 var(--ink);font-size:11px;font-weight:700;letter-spacing:0;padding:7px 9px;margin-top:7px}
+.field-error.visible{display:block}
+.invalid-field{background:#fff0f4;border-color:var(--pink)}

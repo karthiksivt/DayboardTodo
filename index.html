@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dayboard — plan it loud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="validation.css" />
+    <link rel="stylesheet" href="notes.css" />
+    <link rel="stylesheet" href="embeds.css" />
+    <link rel="stylesheet" href="media-compact.css" />
+    <link rel="stylesheet" href="heading-contrast.css" />
+    <link rel="stylesheet" href="task-ui.css" />
+    <link rel="stylesheet" href="themes.css" />
+    <link rel="stylesheet" href="richtext.css" />
+    <link rel="stylesheet" href="checklist.css" />
+    <link rel="stylesheet" href="toolbar.css" />
+    <link rel="stylesheet" href="headings.css" />
+    <link rel="stylesheet" href="toolbar-fix.css" />
+    <link rel="stylesheet" href="notification.css" />
+    <style>.icon-action{display:grid;place-items:center}.icon-svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:2.7;stroke-linecap:square;stroke-linejoin:miter}</style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup"><span class="brand-mark">✦</span><span>DAYBOARD</span><small>PERSONAL PLANNING DESK</small></div>
+        <div class="top-actions"><span class="saved-state" id="savedState">● SAVED LOCALLY</span><button class="icon-button" id="todayButton" title="Jump to today">TODAY</button><button class="avatar">HK</button></div>
+      </header>
+
+      <main class="workspace">
+        <section class="calendar-column">
+          <div class="hero-row">
+            <div><p class="eyebrow">YOUR TIME, YOUR RULES</p><h1>Make space<br><span>for the good stuff.</span></h1></div>
+            <div class="sticker">NO<br>EMPTY<br>DAYS<span>✹</span></div>
+          </div>
+          <div class="calendar-card brutal-card">
+            <div class="calendar-toolbar"><button class="round-button" id="prevMonth">←</button><div><p class="eyebrow">MONTH VIEW</p><h2 id="monthTitle"></h2></div><button class="round-button" id="nextMonth">→</button><button class="add-button" id="newItemButton">＋ NEW ITEM</button></div>
+            <div class="weekdays"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+            <div class="legend"><span><i class="dot pink"></i> TASKS</span><span><i class="dot yellow"></i> TIME BLOCKS</span><span><i class="dot lilac"></i> NOTES</span><span class="legend-tip">CLICK A DAY TO OPEN ITS DESK →</span></div>
+          </div>
+        </section>
+
+        <aside class="day-column">
+          <div class="date-tab"><div><p class="eyebrow">SELECTED DAY</p><h2 id="selectedDate"></h2></div><div class="date-number" id="selectedNumber"></div></div>
+          <div class="day-tabs"><button class="tab active" data-panel="agenda">AGENDA</button><button class="tab" data-panel="notes">NOTES</button></div>
+          <div class="day-panel" id="agendaPanel">
+            <div class="panel-heading"><div><p class="eyebrow">WHAT'S ON</p><h3>Today’s plan</h3></div><button class="small-add" id="addTaskButton">＋</button></div>
+            <div class="progress-wrap"><div class="progress-label"><span id="progressText">0 / 0 complete</span><strong id="progressPercent">0%</strong></div><div class="progress-track"><div id="progressBar"></div></div></div>
+            <div id="taskList" class="task-list"></div>
+            <div class="section-divider"><span>TIME BLOCKS</span><button id="addBlockButton">＋ ADD BLOCK</button></div>
+            <div id="blockList" class="block-list"></div>
+          </div>
+          <div class="day-panel hidden" id="notesPanel">
+            <div class="panel-heading"><div><p class="eyebrow">DAY NOTE</p><h3>Leave a trace.</h3></div><div class="notes-actions"><button class="small-add icon-action notes-close" id="closeNotesButton" title="Close notes focus mode" aria-label="Close notes focus mode">×</button><button class="small-add icon-action" id="focusNotesButton" title="Open notes focus mode" aria-label="Open notes focus mode"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M21 16v5h-5"/></svg></button></div></div>
+            <input id="noteTitle" class="note-title" value="A note worth keeping" aria-label="Note title" />
+            <div class="note-controls"><label>PAGE THEME<select id="noteTheme"><option value="pink">PINK PUNCH</option><option value="yellow">SUN YELLOW</option><option value="lilac">SOFT LILAC</option><option value="mint">MINTY</option><option value="blue">SKY BLUE</option><option value="orange">TANGERINE</option><option value="purple">GRAPE POP</option><option value="green">LIME ZING</option><option value="peach">PEACH MELBA</option><option value="ink">INK & PAPER</option></select></label><label class="attach-button">＋ ATTACH MEDIA<input id="mediaInput" type="file" multiple accept="image/*,video/*,audio/*,.pdf,.txt,.md,.doc,.docx" /></label></div>
+            <div class="embed-row"><input id="urlInput" type="url" placeholder="Paste a URL to embed…" /><button id="addUrlButton" class="embed-button">＋ ADD URL</button></div>
+            <div class="format-toolbar" role="toolbar" aria-label="Note formatting"><select id="blockChoice" title="Text style"><option value="p">BODY</option><option value="h1">HEADING</option><option value="h2">SUBHEADING</option></select><button type="button" data-format="bold" title="Bold"><strong>B</strong></button><button type="button" data-format="strikeThrough" title="Strikethrough"><s>S</s></button><button type="button" data-format="insertUnorderedList" title="Bullet list">•≡</button><button type="button" data-format="checklist" title="Checklist">☐</button><select id="fontChoice" title="Font"><option value="Space Grotesk">NEO GROTESK</option><option value="DM Sans">DM SANS</option><option value="Arial Black">HEAVY BLACK</option><option value="Courier New">MONO</option></select><div class="color-swatches" aria-label="Neo-brutalist text colors"><button type="button" class="color-swatch" data-color="#171717" title="Ink"></button><button type="button" class="color-swatch" data-color="#ff6d9d" title="Pink punch"></button><button type="button" class="color-swatch" data-color="#ffd84d" title="Sun yellow"></button><button type="button" class="color-swatch" data-color="#c7adf3" title="Soft lilac"></button><button type="button" class="color-swatch" data-color="#a8e6c2" title="Minty"></button><button type="button" class="color-swatch" data-color="#98d8e7" title="Sky blue"></button><button type="button" class="color-swatch" data-color="#ff9966" title="Tangerine"></button><button type="button" class="color-swatch" data-color="#b8ff4a" title="Lime zing"></button></div><input id="fontColor" type="color" value="#171717" title="Custom text color" /></div>
+            <div id="notesEditor" class="notes-editor" contenteditable="true" data-placeholder="What matters about this day? Try /checklist..."></div>
+            <div id="attachmentList" class="attachment-list"></div>
+            <div class="note-prompt"><span>✦</span><p>Small notes become a big picture. Keep it honest.</p></div>
+          </div>
+          <div class="quote-card"><span class="quote-mark">“</span><p>Plan the day<br>you actually want.</p><span class="quote-scribble">— DAYBOARD</span></div>
+        </aside>
+      </main>
+      <footer><span>DAYBOARD / 01</span><span>OFFLINE-FIRST · MADE FOR MAC</span><span>NEO-BRUTALIST EDITION ✦</span></footer>
+    </div>
+
+    <dialog id="itemDialog" class="item-dialog"><form method="dialog" id="itemForm" novalidate><div class="dialog-head"><div><p class="eyebrow">ADD TO YOUR DAY</p><h2 id="dialogTitle">New item</h2></div><button type="button" class="close-button" id="closeDialogButton">×</button></div><div class="type-toggle"><button type="button" class="type-choice active" data-type="task">✓ TASK</button><button type="button" class="type-choice" data-type="block">◷ TIME BLOCK</button></div><label>NAME<input id="itemTitle" placeholder="e.g. Sketch the new idea" aria-describedby="itemError" /><span class="field-error" id="itemError" role="alert">Give this item a name first.</span></label><div class="time-row"><label>START<input id="itemStart" type="time" /></label><label>END<input id="itemEnd" type="time" /></label></div><label>COLOR<select id="itemColor"><option value="pink">PINK PUNCH</option><option value="yellow">SUN YELLOW</option><option value="lilac">SOFT LILAC</option><option value="mint">MINTY</option><option value="orange">TANGERINE</option><option value="purple">GRAPE POP</option><option value="green">LIME ZING</option></select></label><label>REMINDER<select id="itemReminder"><option value="0" selected>AT START TIME</option><option value="none">NO NOTIFICATION</option><option value="10">10 MINUTES BEFORE</option><option value="30">30 MINUTES BEFORE</option><option value="60">1 HOUR BEFORE</option></select></label><button class="submit-button" id="itemSubmit" value="default">ADD TO DAY →</button></form></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"><span class="toast-kicker">DAYBOARD ALERT</span><strong id="toastMessage"></strong><button id="toastClose" type="button" aria-label="Dismiss notification">×</button></div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

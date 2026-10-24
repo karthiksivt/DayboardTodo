@@ -1,0 +1,9 @@
+/* Make the three note text levels unmistakable in the editor. */
+.notes-editor > p,
+.notes-editor p { font: 400 16px/1.6 'DM Sans', sans-serif; margin: 0 0 10px; }
+.notes-editor > h2,
+.notes-editor h2 { font: 800 23px/1.12 'Space Grotesk', sans-serif; letter-spacing: -.025em; margin: 14px 0 8px; text-transform: uppercase; }
+.notes-editor > h1,
+.notes-editor h1 { font: 800 32px/1.02 'Space Grotesk', sans-serif; letter-spacing: -.055em; margin: 16px 0 10px; }
+.notes-editor h2::after { content: ''; display: block; width: 46px; border-bottom: 4px solid var(--pink); margin-top: 5px; }
+.notes-editor h1::after { content: ''; display: block; width: 72px; border-bottom: 5px solid var(--yellow); margin-top: 6px; }

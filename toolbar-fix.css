@@ -1,0 +1,1 @@
+.format-toolbar{flex-wrap:wrap;row-gap:7px}.format-toolbar .color-swatches{flex:1 1 100%;order:10;justify-content:flex-start;flex-wrap:wrap;padding:5px 0 0;border-top:var(--thin)}.format-toolbar input[type=color]{order:11;margin-left:0}.format-toolbar select{max-width:190px}

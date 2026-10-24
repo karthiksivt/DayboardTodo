@@ -1,0 +1,8 @@
+/* In-app reminders use Dayboard's neo-brutalist language. macOS native alerts remain OS-controlled. */
+.toast{right:28px;bottom:24px;display:grid;grid-template-columns:1fr auto;gap:4px 14px;min-width:290px;max-width:390px;background:var(--yellow);border:var(--thin);box-shadow:6px 7px 0 var(--ink);padding:14px 16px;transform:translateY(160px) rotate(-1deg);transition:transform .18s ease;z-index:20}
+.toast.visible{transform:translateY(0) rotate(-1deg)}
+.toast-kicker{grid-column:1/-1;font:700 9px/1 'DM Sans';letter-spacing:.14em}
+.toast strong{font:800 16px/1.15 'Space Grotesk';overflow-wrap:anywhere}
+.toast button{grid-column:2;grid-row:2;width:28px;height:28px;border:var(--thin);background:var(--pink);box-shadow:2px 2px 0 var(--ink);font:800 18px/1 'Space Grotesk';cursor:pointer}
+.toast button:hover{transform:translate(-1px,-1px)}
+@media(max-width:520px){.toast{right:14px;bottom:14px;min-width:0;width:calc(100% - 28px)}}

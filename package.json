@@ -1,0 +1,32 @@
+{
+  "name": "dayboard",
+  "version": "1.0.0",
+  "description": "A neo-brutalist daily planning desk for macOS.",
+  "main": "main.js",
+  "author": "Dayboard",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --mac dmg --universal",
+    "pack": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^32.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.dayboard.app",
+    "productName": "Dayboard",
+    "icon": "build/icon-1024.png",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [{ "target": "dmg", "arch": "universal" }],
+      "hardenedRuntime": true
+    },
+    "dmg": {
+      "title": "Dayboard",
+      "iconSize": 96,
+      "window": { "width": 660, "height": 420 }
+    }
+  }
+}

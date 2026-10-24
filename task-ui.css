@@ -1,0 +1,12 @@
+/* Keep long task lists contained and make the selected task color visible. */
+#taskList{max-height:460px;overflow-y:auto;padding:2px 5px 5px 2px}
+.task-row{border-left:8px solid var(--task-color,var(--pink))}
+.task-row[data-color="pink"]{--task-color:var(--pink)}
+.task-row[data-color="yellow"]{--task-color:var(--yellow)}
+.task-row[data-color="lilac"]{--task-color:var(--lilac)}
+.task-row[data-color="mint"]{--task-color:var(--mint)}
+.task-row[data-color="orange"]{--task-color:#ff9966}
+.task-row[data-color="purple"]{--task-color:#b8a0ff}
+.task-row[data-color="green"]{--task-color:#b8ff4a}
+.task-row.done{border-left-color:var(--task-color,var(--mint))}
+@media(max-width:520px){#taskList{max-height:360px}.task-row{padding:8px 7px;gap:7px}}
