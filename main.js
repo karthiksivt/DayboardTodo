@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain, Notification } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, Notification, shell } = require('electron');
 const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
@@ -52,6 +52,7 @@ ipcMain.handle('check-for-updates', async () => {
 });
 ipcMain.handle('download-update', async () => { await autoUpdater.downloadUpdate(); return { status: 'downloading' }; });
 ipcMain.handle('install-update', () => { autoUpdater.quitAndInstall(); });
+ipcMain.handle('open-update-page', () => shell.openExternal('https://github.com/karthiksivt/DayboardTodo/releases/latest'));
 
 app.whenReady().then(() => {
   Menu.setApplicationMenu(null);

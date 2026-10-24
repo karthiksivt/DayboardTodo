@@ -1,6 +1,6 @@
 {
   "name": "dayboard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A neo-brutalist daily planning desk for macOS.",
   "main": "main.js",
   "author": "Dayboard",
