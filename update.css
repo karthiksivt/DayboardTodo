@@ -1,0 +1,5 @@
+#updateButton{background:var(--yellow);border:var(--thin);box-shadow:3px 3px 0 var(--ink);font:800 11px/1 'Space Grotesk',sans-serif;letter-spacing:.06em;padding:11px 12px;cursor:pointer;white-space:nowrap}
+#updateButton:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+#updateButton:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+#updateButton.is-busy{background:var(--mint);cursor:wait}
+#updateButton.is-ready{background:var(--pink)}

@@ -2,6 +2,10 @@ const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('dayboard', {
   platform: process.platform,
-  version: '1.0.0',
-  notify: reminder => ipcRenderer.send('show-reminder', reminder)
+  version: require('electron').app?.getVersion?.() || '1.0.0',
+  notify: reminder => ipcRenderer.send('show-reminder', reminder),
+  checkForUpdates: () => ipcRenderer.invoke('check-for-updates'),
+  downloadUpdate: () => ipcRenderer.invoke('download-update'),
+  installUpdate: () => ipcRenderer.invoke('install-update'),
+  onUpdateStatus: callback => ipcRenderer.on('update-status', (_event, payload) => callback(payload))
 });

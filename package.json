@@ -20,13 +20,25 @@
     "icon": "build/icon-1024.png",
     "mac": {
       "category": "public.app-category.productivity",
-      "target": [{ "target": "dmg", "arch": "universal" }],
+      "target": [
+        {
+          "target": "dmg",
+          "arch": "universal"
+        }
+      ],
       "hardenedRuntime": true
     },
+    "publish": [{ "provider": "github", "owner": "karthiksivt", "repo": "DayboardTodo", "releaseType": "release" }],
     "dmg": {
       "title": "Dayboard",
       "iconSize": 96,
-      "window": { "width": 660, "height": 420 }
+      "window": {
+        "width": 660,
+        "height": 420
+      }
     }
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.11"
   }
 }
