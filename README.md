@@ -29,7 +29,7 @@ The generated `.dmg` will be in `dist/`.
 
 ## Releasing updates
 
-Increase the version in `package.json`, run `npm run dist`, and publish the resulting DMG together with `dist/latest-mac.yml` as a GitHub Release. Installed apps can then use the **↻ UPDATE** button to check, download, and install the new release. Signed and notarized builds are recommended for production distribution.
+Increase the version in `package.json`, run `npm run dist`, and publish the resulting DMG, ZIP, blockmaps, and `dist/latest-mac.yml` as a GitHub Release. Installed apps can then use the **↻ UPDATE** button to check, download, and install the new release. Signed and notarized builds are recommended for production distribution.
 
 ## Included in this first build
 

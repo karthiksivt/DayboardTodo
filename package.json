@@ -1,13 +1,13 @@
 {
   "name": "dayboard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A neo-brutalist daily planning desk for macOS.",
   "main": "main.js",
   "author": "Dayboard",
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --mac dmg --universal",
+    "dist": "electron-builder --mac dmg zip --universal",
     "pack": "electron-builder --dir"
   },
   "devDependencies": {
@@ -23,6 +23,10 @@
       "target": [
         {
           "target": "dmg",
+          "arch": "universal"
+        },
+        {
+          "target": "zip",
           "arch": "universal"
         }
       ],
