@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --mac dmg zip --universal",
+    "dist": "electron-builder --mac zip dmg --universal",
     "pack": "electron-builder --dir"
   },
   "devDependencies": {
@@ -22,11 +22,11 @@
       "category": "public.app-category.productivity",
       "target": [
         {
-          "target": "dmg",
+          "target": "zip",
           "arch": "universal"
         },
         {
-          "target": "zip",
+          "target": "dmg",
           "arch": "universal"
         }
       ],
